@@ -53,4 +53,8 @@ private:
   std::shared_ptr<CellOccupancyEstimator> _occupancy_estimator;
 };
 
+auto makeGridCellStrategy(const std::shared_ptr<GridCellFactory>& factory,const std::shared_ptr<ScanCostEstimator>& psce,const std::shared_ptr<CellOccupancyEstimator>& coe)
+{
+  return std::make_shared<GridCellStrategy>(factory, psce, coe);
+}
 #endif

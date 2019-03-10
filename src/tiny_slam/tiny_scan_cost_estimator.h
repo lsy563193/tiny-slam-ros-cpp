@@ -47,4 +47,12 @@ public:
 
 };
 
+inline std::shared_ptr<ScanCostEstimator> makeScanCostEstimator(const std::string& type)
+{
+  if(type =="Tiny")
+  {
+    return std::make_shared<TinyScanCostEstimator>();
+  }
+  return nullptr;
+}
 #endif

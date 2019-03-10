@@ -81,5 +81,9 @@ private: // fields
   std::string _frame_odom;
   std::string _frame_robot_pose;
 };
-
+auto makeRvizGridViewer(ros::Publisher pub, const double show_map_rate,
+                 std::string frame_odom, std::string frame_robot_pose)
+{
+  return std::make_shared<RvizGridViewer>(pub, show_map_rate, frame_odom, frame_robot_pose);
+}
 #endif

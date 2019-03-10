@@ -84,4 +84,11 @@ private:
   std::shared_ptr<RvizGridViewer> _viewer;
 };
 
+auto makeSlam(std::shared_ptr<GridCellStrategy> gcs,
+              const TinyWorldParams &params,
+              const GridMapParams &init_map_params,
+              bool skip_max_vals)
+{
+  return  std::make_shared<TinySlamFascade>(gcs, params, init_map_params, skip_max_vals);
+}
 #endif

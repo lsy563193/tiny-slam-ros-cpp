@@ -102,4 +102,15 @@ private: // fields
   std::vector<std::weak_ptr<TopicObserver<MsgType>>> _observers;
 };
 
+template <typename MsgType>
+inline
+auto makeScanObserver(ros::NodeHandle nh,
+                      const std::string &topic_name,
+                      const std::string &target_frame,
+                      const double buffer_duration,
+                      const double tf_filter_queue_size,
+                      const double subscribers_queue_size)
+{
+  return std::make_shared<TopicWithTransform<MsgType>>(nh, topic_name, target_frame, buffer_duration, tf_filter_queue_size, subscribers_queue_size);
+}
 #endif // macro guard
